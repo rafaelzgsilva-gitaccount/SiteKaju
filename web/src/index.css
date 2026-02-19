@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* ===== Kaju Design System — Tailwind v4 @theme ===== */
+@theme {
+  /* Colors */
+  --color-background: #FAF9F6;
+  --color-foreground: #1A1A1A;
+
+  --color-primary: #C41E2A;
+  --color-primary-light: #E63946;
+  --color-primary-dark: #9B1B22;
+  --color-primary-foreground: #FFFFFF;
+
+  --color-secondary: #F5F0EB;
+  --color-secondary-foreground: #1A1A1A;
+
+  --color-accent: #E8E0D8;
+  --color-accent-foreground: #1A1A1A;
+
+  --color-muted: #F5F0EB;
+  --color-muted-foreground: #6B6B6B;
+
+  /* Typography */
+  --font-sans: "DM Sans", sans-serif;
+  --font-heading: "Playfair Display", Georgia, serif;
+
+  /* Font Sizes */
+  --font-size-display: clamp(3.5rem, 8vw, 8rem);
+  --font-size-hero: clamp(2.5rem, 5vw, 5rem);
+
+  /* Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 3s ease-in-out infinite;
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ===== Base Styles ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
+  ::selection {
+    background-color: #C41E2A;
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #FAF9F6;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #C41E2A;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9B1B22;
+  }
+}
+
+/* ===== Component Utilities ===== */
+@utility section-label {
+  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+@utility editorial-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+@utility glass {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(24px);
+}
+
+@utility card-hover {
+  transition: all 0.5s ease-out;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility text-display {
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+@utility text-hero {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}

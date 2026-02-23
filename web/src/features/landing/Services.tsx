@@ -8,7 +8,7 @@ const services = [
         number: "01",
         title: "Gestão de Redes Sociais",
         subtitle: "PREMIUM",
-        description: "Não somos apenas gestores de um feed bonitinho, somos estrategistas. Construímos uma vitrine virtual que transmite clareza, autoridade e confiança.",
+        description: "Presença digital com direção, estratégia e constância. Seu perfil passa a ter posicionamento claro, conteúdo intencional e acompanhamento contínuo para atrair, conectar e vender.",
         color: "bg-primary",
         textColor: "text-white",
     },
@@ -17,16 +17,16 @@ const services = [
         number: "02",
         title: "Curadoria de Conteúdo",
         subtitle: "& STORYTELLING",
-        description: "Vamos contar a história da sua empresa de um jeito que ninguém mais conta. Narrativas envolventes que agregam valor real à sua marca.",
+        description: "Conteúdo com lógica. Defino os pilares, as linhas editoriais e os temas certos para que tudo o que você poste tenha propósito e coerência.",
         color: "bg-foreground",
         textColor: "text-white",
     },
     {
         icon: Calendar,
         number: "03",
-        title: "Calendário Editorial",
+        title: "Calendário de Conteúdo",
         subtitle: "ESTRATÉGICO",
-        description: "Organizamos sua comunicação, distribuindo temas de forma inteligente dentro de um cronograma mensal desenhado para o seu objetivo.",
+        description: "Organização que gera consistência e crescimento. Um planejamento mensal estratégico para que você saiba exatamente o que comunicar, com clareza e foco em performance.",
         color: "bg-primary/90",
         textColor: "text-white",
     },
@@ -35,7 +35,7 @@ const services = [
         number: "04",
         title: "Análise de Perfil",
         subtitle: "& OTIMIZAÇÃO",
-        description: "Antes de construir o teto, arrumamos a casa. Diagnóstico completo da sua presença online para garantir que o cliente certo decida ficar.",
+        description: "Um raio-X completo do seu Instagram. Identifico ajustes, oportunidades e pontos de melhoria para transformar seu perfil em um ambiente preparado para vender.",
         color: "bg-foreground/90",
         textColor: "text-white",
     },
@@ -44,14 +44,16 @@ const services = [
 export const Services = () => {
     return (
         <Section className="bg-background" id="servicos">
-            <div className="mb-16 md:mb-20">
+            {/* Header row: title left, photo accent right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-end mb-16 md:mb-20">
+                {/* Left – section title */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <span className="section-label block mb-4">//serviços//</span>
+                    <span className="section-label block mb-4">serviços</span>
                     <h2 className="text-4xl md:text-6xl font-heading font-bold text-foreground mb-6">
                         O Alicerce<span className="text-primary">.</span>
                     </h2>
@@ -59,8 +61,44 @@ export const Services = () => {
                         A base sólida que sua marca precisa para crescer de forma sustentável no digital.
                     </p>
                 </motion.div>
+
+                {/* Right – editorial photo pill */}
+                <motion.div
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative flex justify-end items-end"
+                >
+                    <div className="relative w-56 h-72 md:w-64 md:h-80 rounded-[2rem] overflow-hidden shadow-2xl">
+                        <img
+                            src="/fotos/2.webp"
+                            alt="Kaju – Curadoria de Conteúdo"
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                            style={{ objectPosition: '50% 10%' }}
+                        />
+                        {/* Bottom gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
+                        {/* Label */}
+                        <div className="absolute bottom-4 left-4 right-4">
+                            <span className="text-xs font-sans font-medium text-white/80 tracking-widest uppercase">
+                                Conteúdo com intenção
+                            </span>
+                        </div>
+                    </div>
+                    {/* Decorative dot grid */}
+                    <div
+                        className="absolute -bottom-4 -left-4 w-20 h-20 opacity-20"
+                        style={{
+                            backgroundImage: 'radial-gradient(circle, var(--color-primary) 1px, transparent 1px)',
+                            backgroundSize: '8px 8px',
+                        }}
+                    />
+                </motion.div>
             </div>
 
+            {/* Service cards grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {services.map((service, index) => (
                     <motion.div

@@ -6,23 +6,51 @@ import { WHATSAPP_URL } from '../../components/ui/WhatsAppButton';
 
 export const Strategy = () => {
     return (
-        <section className="bg-foreground text-white py-20 md:py-32" id="estrategia">
-            <Section className="py-0">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-16 md:mb-20"
-                >
-                    <span className="section-label block mb-4">//estratégia//</span>
-                    <h2 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
-                        Estratégia e Escala<span className="text-primary">.</span>
-                    </h2>
-                    <p className="text-lg text-white/50 max-w-xl font-sans">
-                        Não entregamos teoria. Entregamos experiência da vida real, com 10 anos testando no campo de batalha.
-                    </p>
-                </motion.div>
+        <section className="bg-foreground text-white py-20 md:py-32 relative overflow-hidden" id="estrategia">
+            {/* Subtle background glow */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3" />
+
+            <Section className="py-0 relative z-10">
+                {/* Header + Photo row */}
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 items-end mb-16 md:mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <span className="section-label block mb-4">estratégia</span>
+                        <h2 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
+                            Estratégia e Escala<span className="text-primary">.</span>
+                        </h2>
+                        <p className="text-lg text-white/50 max-w-xl font-sans">
+                            Não entregamos teoria. Entregamos estratégia testada e validada ao longo de 10 anos.
+                        </p>
+                    </motion.div>
+
+                    {/* Editorial portrait – vertical strip */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="hidden lg:block"
+                    >
+                        <div className="relative w-40 h-56 rounded-2xl overflow-hidden border border-white/10">
+                            <img
+                                src="/fotos/3.webp"
+                                alt="Kaju – Estratégia"
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                                style={{ objectPosition: '50% 15%' }}
+                            />
+                            {/* Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+                            {/* Red accent line */}
+                            <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
+                        </div>
+                    </motion.div>
+                </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {/* Consultoria */}
@@ -38,10 +66,10 @@ export const Strategy = () => {
                         </div>
                         <h3 className="text-2xl md:text-3xl font-heading font-bold">Consultoria</h3>
                         <p className="text-white/60 text-base leading-relaxed font-sans">
-                            Com 10 anos testando, errando e validando estratégias na minha própria empresa, eu encurto o seu caminho para o sucesso. Uma hora de consultoria para alinhar sua visão, identificar gargalos e traçar um plano de ação livre de desperdícios.
+                            Direção estratégica para quem quer acelerar. Um plano de ação, aplicável e alinhado com o momento do seu negócio.
                         </p>
                         <ul className="space-y-3 mt-2">
-                            {['Diagnóstico de gargalos', 'Planejamento estratégico', 'Plano de ação personalizado', 'Acompanhamento de resultados'].map((item) => (
+                            {['Diagnóstico de gargalos', 'Planejamento estratégico', 'Plano de ação personalizado'].map((item) => (
                                 <li key={item} className="flex items-center gap-3 text-white/70 text-sm font-sans">
                                     <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                                     {item}
@@ -68,13 +96,14 @@ export const Strategy = () => {
                             <TrendingUp className="w-6 h-6 text-white" />
                         </div>
                         <h3 className="text-2xl md:text-3xl font-heading font-bold">Tráfego Pago</h3>
-                        <p className="text-white/80 text-base leading-relaxed font-sans">
-                            O tráfego pago não faz milagres, ele potencializa o que já funciona. Criamos campanhas com segmentação cirúrgica, colocando a sua mensagem na frente de quem realmente tem interesse e poder de compra.
-                        </p>
-                        <ul className="space-y-3 mt-2">
-                            {['Crescimento previsível', 'Segmentação qualificada', 'Resultados mensuráveis', 'A partir de R$ 3.000/mês'].map((item) => (
-                                <li key={item} className="flex items-center gap-3 text-white/80 text-sm font-sans">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
+                        <ul className="space-y-4 mt-2">
+                            {[
+                                'O tráfego pago coloca seu conteúdo na frente das pessoas certas.',
+                                'Você para de depender só do orgânico e começa a atrair leads todos os dias.',
+                                'Crescimento previsível, segmentado e com resultado mensurável.',
+                            ].map((item) => (
+                                <li key={item} className="flex items-start gap-3 text-white/80 text-sm font-sans leading-relaxed">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0 mt-1.5" />
                                     {item}
                                 </li>
                             ))}

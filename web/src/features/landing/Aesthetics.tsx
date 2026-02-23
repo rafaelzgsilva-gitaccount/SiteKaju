@@ -7,19 +7,19 @@ const aestheticServices = [
         icon: Palette,
         number: "07",
         title: "Identidade Visual",
-        description: "Marca boa não grita, ela conquista. Desenvolvemos a alma visual do seu negócio. Desde a paleta de cores até a tipografia e o logotipo, criamos um padrão comunicacional forte, marcante e autêntico.",
+        description: "Uma marca que se posiciona antes mesmo de falar. Construção visual estratégica, alinhada ao seu público e à percepção de valor que você quer transmitir.",
     },
     {
         icon: PenTool,
         number: "08",
-        title: "Design Profissional",
-        description: "Porque a rede social é visual, é conexão, é sedução. Criamos artes estáticas, carrosséis e materiais gráficos com acabamento impecável. Cada detalhe visual é pensado para atrair olhares.",
+        title: "Designer",
+        description: "Design que fortalece sua autoridade. Artes pensadas para valorizar seu conteúdo e manter um padrão visual profissional.",
     },
     {
         icon: Image,
         number: "09",
         title: "Captação de Imagens",
-        description: "Esqueça fotos amadoras. Nós cuidamos do cenário, iluminação, enquadramento e direção. Um banco de imagens exclusivo que transmite a verdadeira qualidade do seu produto.",
+        description: "Imagem é posicionamento. Produção de fotos e vídeos estratégicos para elevar o nível da sua comunicação.",
     },
 ];
 
@@ -27,29 +27,61 @@ export const Aesthetics = () => {
     return (
         <Section className="bg-secondary/50" id="estetica">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start">
-                {/* Left - Header */}
+                {/* Left - Header + Photo */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="lg:sticky lg:top-32"
+                    className="lg:sticky lg:top-32 space-y-10"
                 >
-                    <span className="section-label block mb-4">//estética//</span>
-                    <h2 className="text-4xl md:text-6xl font-heading font-bold text-foreground mb-6 leading-[0.95]">
-                        Estética<br />
-                        e Imagem<span className="text-primary">.</span>
-                    </h2>
-                    <p className="text-lg text-foreground/50 font-sans leading-relaxed">
-                        Sua audiência reconhecerá sua empresa de longe e se identificará de imediato.
-                    </p>
-
-                    {/* Decorative element */}
-                    <div className="mt-12 hidden lg:block">
-                        <div className="w-24 h-24 rounded-full border-2 border-primary/20 flex items-center justify-center">
-                            <div className="w-12 h-12 rounded-full bg-primary/10" />
-                        </div>
+                    <div>
+                        <span className="section-label block mb-4">estética</span>
+                        <h2 className="text-4xl md:text-6xl font-heading font-bold text-foreground mb-6 leading-[0.95]">
+                            Conexão com seus<br />
+                            seguidores<span className="text-primary">.</span>
+                        </h2>
+                        <p className="text-lg text-foreground/50 font-sans leading-relaxed">
+                            Criando uma narrativa envolvente que agrega valor real à sua marca.
+                        </p>
                     </div>
+
+                    {/* Editorial photo replacing the decorative circle */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="hidden lg:block"
+                    >
+                        <div className="relative w-fit">
+                            {/* Photo — box-shadow offset simulates the accent frame with zero layout artifacts */}
+                            <div
+                                className="relative w-full max-w-xs rounded-3xl overflow-hidden aspect-[3/4]"
+                                style={{ boxShadow: '8px 8px 0 0 rgba(196,30,42,0.18), 0 24px 64px rgba(0,0,0,0.14)' }}
+                            >
+                                <img
+                                    src="/fotos/4.webp"
+                                    alt="Kaju – Estética e Imagem"
+                                    className="w-full h-full object-cover"
+                                    loading="lazy"
+                                    style={{ objectPosition: '50% 10%' }}
+                                />
+                                {/* Gradient overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
+                                {/* Bottom label */}
+                                <div className="absolute bottom-5 left-5 right-5">
+                                    <div className="bg-white/90 backdrop-blur-sm rounded-xl px-4 py-2.5 flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
+                                        <span className="text-xs font-sans font-semibold text-foreground tracking-wide uppercase">
+                                            Imagem é posicionamento
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+
                 </motion.div>
 
                 {/* Right - Services list */}

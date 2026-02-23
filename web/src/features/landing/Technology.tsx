@@ -6,22 +6,22 @@ const techServices = [
     {
         icon: Layout,
         title: "Landing Page",
-        description: "Landing Pages de alta conversão. Um ambiente desenhado com um único objetivo: transformar cliques em leads qualificados.",
+        description: "Uma página pensada para transformar visitas em oportunidades. Estrutura estratégica, layout funcional e comunicação alinhada ao seu objetivo.",
     },
     {
         icon: ShoppingBag,
         title: "Site E-commerce",
-        description: "Lojas virtuais premium, otimizadas para a melhor experiência e estruturadas para maximizar faturamento 24/7.",
+        description: "Sua loja aberta 24 horas por dia. Criação de e-commerce com experiência de compra otimizada, organização de produtos e estrutura pronta para escalar vendas.",
     },
     {
         icon: MessageSquare,
         title: "Chatbot",
-        description: "Fluxos inteligentes para WhatsApp e Instagram. Qualificamos leads e agendamos reuniões automaticamente.",
+        description: "Atendimento ágil, automático e estratégico. Mais velocidade nas respostas, melhor experiência para o cliente e mais oportunidades de conversão.",
     },
     {
         icon: Bot,
         title: "Agente IA",
-        description: "Agentes de IA customizados que entendem o contexto, negociam e fecham vendas de forma humanizada.",
+        description: "Automação inteligente para ganhar tempo e produtividade. Processos otimizados, respostas rápidas e suporte ao crescimento do seu negócio.",
     },
 ];
 
@@ -32,21 +32,45 @@ export const Technology = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
 
             <Section className="py-0 relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-16 md:mb-20 text-center"
-                >
-                    <span className="section-label block mb-4">//inovação//</span>
-                    <h2 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
-                        Tecnologia e IA<span className="text-primary">.</span>
-                    </h2>
-                    <p className="text-lg text-white/40 max-w-2xl mx-auto font-sans">
-                        Soluções avançadas para automatizar, escalar e dominar o digital.
-                    </p>
-                </motion.div>
+                {/* Header row: centered title + photo accent */}
+                <div className="relative mb-16 md:mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center"
+                    >
+                        <span className="section-label block mb-4">inovação</span>
+                        <h2 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
+                            Tecnologia e IA<span className="text-primary">.</span>
+                        </h2>
+                        <p className="text-lg text-white/40 max-w-2xl mx-auto font-sans">
+                            Soluções avançadas para automatizar, escalar e dominar o digital.
+                        </p>
+                    </motion.div>
+
+                    {/* Floating photo – right aligned, overlapping */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="hidden xl:block absolute right-0 top-1/2 -translate-y-1/2"
+                    >
+                        <div className="relative w-36 h-48 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                            <img
+                                src="/fotos/5.webp"
+                                alt="Kaju – Tecnologia"
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                                style={{ objectPosition: '50% 15%' }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />
+                        </div>
+                    </motion.div>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {techServices.map((service, index) => (

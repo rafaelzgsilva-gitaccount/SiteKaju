@@ -6,7 +6,6 @@ import { Star } from 'lucide-react';
 const stats = [
     { label: "Visualizações", value: 1000000, display: "+1M", suffix: "" },
     { label: "Leads Qualificados", value: 80000, display: "+80K", suffix: "" },
-    { label: "Clientes Satisfeitos", value: 500, display: "+500", suffix: "" },
 ];
 
 const testimonials = [
@@ -52,18 +51,47 @@ const AnimatedCounter = ({ target, label }: { target: string; label: string }) =
 export const SocialProof = () => {
     return (
         <Section className="bg-background" id="prova-social">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-center mb-16 md:mb-20"
-            >
-                <span className="section-label block mb-4">//resultados//</span>
-                <h2 className="text-4xl md:text-6xl font-heading font-bold text-foreground">
-                    Resultados que Falam<span className="text-primary">.</span>
-                </h2>
-            </motion.div>
+            {/* Header with photo accent */}
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-end mb-16 md:mb-20">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <span className="section-label block mb-4">resultados</span>
+                    <h2 className="text-4xl md:text-6xl font-heading font-bold text-foreground">
+                        Resultados que Falam<span className="text-primary">.</span>
+                    </h2>
+                </motion.div>
+
+                {/* Photo accent */}
+                <motion.div
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="hidden lg:block"
+                >
+                    <div className="relative w-44 h-56 rounded-2xl overflow-hidden shadow-xl">
+                        <img
+                            src="/fotos/6.webp"
+                            alt="Kaju – Resultados"
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                            style={{ objectPosition: '50% 15%' }}
+                        />
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
+                        {/* Stat badge */}
+                        <div className="absolute bottom-4 left-3 right-3">
+                            <div className="bg-primary rounded-lg px-3 py-1.5 text-center">
+                                <span className="text-white text-xs font-sans font-bold tracking-wide">+500 clientes</span>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 mb-20 md:mb-28 max-w-4xl mx-auto">

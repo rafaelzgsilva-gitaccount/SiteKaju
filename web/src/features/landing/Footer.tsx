@@ -1,6 +1,6 @@
 import { Section } from '../../components/ui/Section';
 import { Button } from '../../components/ui/Button';
-import { motion } from 'framer-motion';
+import { AnimateInView } from '../../components/ui/AnimateInView';
 import { ArrowRight } from 'lucide-react';
 import { WHATSAPP_URL } from '../../components/ui/WhatsAppButton';
 
@@ -9,13 +9,7 @@ export const Footer = () => {
         <footer className="bg-foreground text-white">
             {/* CTA Section */}
             <Section className="py-20 md:py-32">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center space-y-8 max-w-3xl mx-auto"
-                >
+                <AnimateInView direction="up" duration={800} className="text-center space-y-8 max-w-3xl mx-auto">
                     <h2 className="text-4xl md:text-6xl font-heading font-bold leading-tight">
                         O digital não é mais<br />
                         uma opção<span className="text-primary">.</span><br />
@@ -30,7 +24,7 @@ export const Footer = () => {
                             <ArrowRight className="w-5 h-5" />
                         </Button>
                     </a>
-                </motion.div>
+                </AnimateInView>
             </Section>
 
             {/* Bottom bar */}

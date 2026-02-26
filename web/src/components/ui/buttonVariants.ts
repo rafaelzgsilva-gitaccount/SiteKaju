@@ -13,8 +13,6 @@ export const buttonVariants = cva(
                     "border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-white rounded-full",
                 ghost:
                     "hover:bg-secondary text-foreground",
-                whatsapp:
-                    "bg-[#25D366] text-white hover:bg-[#1fa855] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 rounded-full",
                 link:
                     "text-primary underline-offset-4 hover:underline p-0 h-auto",
             },

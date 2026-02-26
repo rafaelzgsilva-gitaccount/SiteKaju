@@ -1,5 +1,4 @@
 import { Button } from '../../components/ui/Button';
-import { motion } from 'framer-motion';
 import { WHATSAPP_URL } from '../../components/ui/WhatsAppButton';
 import { ArrowRight } from 'lucide-react';
 
@@ -8,21 +7,19 @@ export const Hero = () => {
         <section className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-20 pb-0">
             {/* Background decorative elements */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary rounded-full blur-3xl" />
+                <div className="hidden md:block absolute top-20 right-0 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-3xl" />
+                <div className="hidden md:block absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary rounded-full blur-3xl" />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch min-h-[80vh]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch lg:min-h-[80vh]">
 
                     {/* Left - Text Content */}
-                    <div className="flex flex-col justify-center py-12 md:py-16 pr-0 lg:pr-16">
+                    <div className="flex flex-col justify-center py-10 md:py-16 pr-0 lg:pr-16">
                         {/* Oversized Brand Name */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="mb-10 md:mb-12"
+                        <div
+                            className="mb-8 md:mb-12 hero-fade-up"
+                            style={{ animationDelay: '0s' }}
                         >
                             <h1 className="text-display font-heading font-bold text-foreground leading-[0.9] tracking-[-0.04em]">
                                 Kaju
@@ -30,26 +27,22 @@ export const Hero = () => {
                                 <br />
                                 <span className="text-primary italic">Assessoria</span>
                             </h1>
-                        </motion.div>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                            className="space-y-6 mb-10"
+                        <div
+                            className="space-y-5 mb-8 hero-fade-up"
+                            style={{ animationDelay: '0.2s' }}
                         >
                             <div className="section-label">Estratégia · Branding · Tecnologia</div>
                             <h2 className="text-hero font-heading font-bold text-foreground text-balance">
                                 Se você não está no digital,{' '}
-                                <span className="text-primary italic">você não existe.</span>
+                                <span className="text-primary italic">você não existe</span>
                             </h2>
-                        </motion.div>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                            className="space-y-8"
+                        <div
+                            className="space-y-6 hero-fade-up"
+                            style={{ animationDelay: '0.4s' }}
                         >
                             <p className="text-lg md:text-xl text-foreground/60 leading-relaxed font-sans max-w-lg">
                                 Há quase uma década transformando seguidores em clientes fiéis — da estratégia orgânica ao tráfego pago inteligente, passando pelas automações mais avançadas com Inteligência Artificial.
@@ -69,23 +62,18 @@ export const Hero = () => {
                                 </a>
                             </div>
 
-                            {/* Social Proof Badge */}
                             <p className="text-sm text-foreground/50 font-sans leading-relaxed pt-2">
                                 Negócios que confiaram no processo transformaram presença digital em faturamento.
                             </p>
-                        </motion.div>
+                        </div>
                     </div>
 
-                    {/* Right - Editorial Photo */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 60 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative hidden lg:flex items-end justify-end"
+                    {/* Editorial Photo — stacks below text on mobile, side-by-side on desktop */}
+                    <div
+                        className="relative flex items-end justify-end mt-8 pb-10 lg:mt-0 lg:pb-0 hero-fade-up"
+                        style={{ animationDelay: '0.3s' }}
                     >
-                        {/* Photo container */}
-                        <div className="relative w-full h-full min-h-[600px] max-h-[90vh]">
-                            {/* Main photo — box-shadow offset replaces the external border frame */}
+                        <div className="relative w-full h-72 sm:h-96 lg:h-full lg:min-h-[600px] lg:max-h-[90vh]">
                             <div
                                 className="relative w-full h-full rounded-2xl overflow-hidden"
                                 style={{ boxShadow: '8px 8px 0 0 rgba(196,30,42,0.15), 0 32px 80px rgba(0,0,0,0.12)' }}
@@ -93,22 +81,18 @@ export const Hero = () => {
                                 <img
                                     src="/fotos/1.webp"
                                     alt="Kaju Assessoria"
-                                    className="w-full h-full object-cover object-top"
+                                    className="w-full h-full object-cover"
                                     fetchPriority="high"
                                     style={{ objectPosition: '50% 15%' }}
                                 />
-                                {/* Gradient overlay - bottom fade */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-                                {/* Subtle left vignette */}
                                 <div className="absolute inset-0 bg-gradient-to-r from-background/20 via-transparent to-transparent" />
                             </div>
 
                             {/* Floating badge */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.9 }}
-                                className="absolute bottom-8 left-6 z-20 bg-white/95 backdrop-blur-sm rounded-xl px-5 py-3 shadow-lg border border-black/5"
+                            <div
+                                className="absolute bottom-4 left-4 z-20 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2.5 shadow-lg border border-black/5 hero-fade-up"
+                                style={{ animationDelay: '0.9s' }}
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -116,17 +100,15 @@ export const Hero = () => {
                                         Especialista em Marketing Digital
                                     </span>
                                 </div>
-                            </motion.div>
+                            </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* Decorative line */}
-                <motion.div
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="mt-8 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent origin-left"
+                <div
+                    className="mt-8 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent hero-scale-x"
+                    style={{ animationDelay: '0.8s' }}
                 />
             </div>
         </section>

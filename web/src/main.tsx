@@ -5,9 +5,7 @@ import App from './App.tsx';
 
 // Font imports
 import '@fontsource/playfair-display/400.css';
-import '@fontsource/playfair-display/500.css';
 import '@fontsource/playfair-display/700.css';
-import '@fontsource/playfair-display/800.css';
 import '@fontsource/playfair-display/400-italic.css';
 import '@fontsource/playfair-display/700-italic.css';
 import '@fontsource/dm-sans/400.css';
